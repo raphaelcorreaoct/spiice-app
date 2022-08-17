@@ -2,14 +2,14 @@ import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 
 import {Provider} from 'react-redux';
+import {Box} from './src/components';
 import store from './src/store/store';
-
-console.disableYellowBox = true;
 
 const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaView>
+        <Box width={'100%'} height={50} />
         <Text>Olá mundo</Text>
       </SafeAreaView>
     </Provider>
