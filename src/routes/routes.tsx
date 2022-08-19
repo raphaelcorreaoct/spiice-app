@@ -20,7 +20,7 @@ export default function Routes() {
   }, []);
   return (
     <NavigationContainer>
-      {authState.isLoggedIn ? <AppStack /> : <LoginStack />}
+      {authState.user ? <AppStack /> : <LoginStack />}
     </NavigationContainer>
   );
 }
