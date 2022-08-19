@@ -1,20 +1,26 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {AppStack} from './appStack';
 import {LoginStack} from './loginStack';
 
+import {useSelector} from 'react-redux';
+import {useAuth} from './../store/loginStore/loginActions';
+import {RootState} from '../store/rootReducer';
+
 export default function Routes() {
-  const [isLogged, setLogged] = useState<boolean>(false);
+  const [initialized, setInitialized] = React.useState(false);
+  const authState = useSelector((state: RootState) => state.loginReducer);
+  const Auth = useAuth();
 
   useEffect(() => {
-    setTimeout(() => {
-      setLogged(true);
-    }, 2000);
+    if (!initialized) {
+      Auth.verifyLoggedIn();
+      setInitialized(true);
+    }
   }, []);
   return (
     <NavigationContainer>
-      {!isLogged && <LoginStack />}
-      {isLogged && <AppStack />}
+      {authState.isLoggedIn ? <AppStack /> : <LoginStack />}
     </NavigationContainer>
   );
 }

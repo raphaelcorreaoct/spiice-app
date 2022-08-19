@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "810194396595",
+    "project_id": "spiice-d3d71",
+    "storage_bucket": "spiice-d3d71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810194396595:android:07bf0c79a80d82c2bcd7c6",
+        "android_client_info": {
+          "package_name": "com.spiice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810194396595-95bpc36jdc58ki1c3k3go526akrfv5fe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQ5c3buyx_NZnaPum6hZ_GwDuzusEbtH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810194396595-95bpc36jdc58ki1c3k3go526akrfv5fe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
