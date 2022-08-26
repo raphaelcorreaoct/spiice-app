@@ -1,37 +1,19 @@
-import {View, Text, Button} from 'react-native';
 import React from 'react';
-import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore';
+import {Box, Txt} from '../../components';
+import DataTabView from './components/dataTabView';
 
 export default function HomeScreen() {
   return (
-    <View>
-      <Text>HomeScreen</Text>
-      <Button
-        title="Logout"
-        onPress={() => {
-          auth()
-            .signOut()
-            .then(() => console.log('User signed out!'));
-        }}
-      />
-      <Button
-        title="Go to Profile"
-        onPress={() => {
-          firestore()
-            .collection('Users')
-            .add({
-              name: 'Ada Lovelace',
-              age: 30,
-            })
-            .then(() => {
-              console.log('User added!');
-            })
-            .catch(error => {
-              console.log(error);
-            });
-        }}
-      />
-    </View>
+    <Box flex={1}>
+      <Box height={135} bg="color-primary" px="xxxs" justifyContent="center">
+        <Txt fontSize="sm" color="on-color-primary">
+          Saldo atual
+        </Txt>
+        <Txt fontSize="xl" fontWeights="bold" color="on-color-primary">
+          R$ 1100,00
+        </Txt>
+      </Box>
+      <DataTabView />
+    </Box>
   );
 }
