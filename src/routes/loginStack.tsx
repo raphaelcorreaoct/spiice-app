@@ -6,7 +6,10 @@ export const Stack = createNativeStackNavigator();
 
 export const LoginStack: React.FC = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        header: () => null,
+      }}>
       <Stack.Screen name="login" component={LoginScreen} />
     </Stack.Navigator>
   );

@@ -14,11 +14,19 @@ import {
   typography,
   TypographyProps,
   compose,
+  TextColorProps,
+  textColor,
 } from 'styled-system';
 import {BoxProps} from '../Box/Box';
 import {boxCompose} from './../Box/Box';
 
-export const textCompose = compose(fontSize, fontWeight, textStyle, typography);
+export const textCompose = compose(
+  fontSize,
+  fontWeight,
+  textStyle,
+  typography,
+  textColor,
+);
 
 export type TxtProps = TypographyProps &
   TextStyleProps &
@@ -28,6 +36,7 @@ export type TxtProps = TypographyProps &
   ColorProps &
   FontFamilyProps &
   TextAlignProps &
+  TextColorProps &
   LineHeightProps &
   TextPropsRN;
 
