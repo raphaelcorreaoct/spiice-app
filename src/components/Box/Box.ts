@@ -1,3 +1,4 @@
+import {TouchableOpacityProps} from 'react-native';
 import styled from 'styled-components/native';
 import {
   BorderProps,
@@ -43,8 +44,12 @@ export type BoxProps = SpaceProps &
   FlexWrapProps &
   ShadowProps;
 
-const Box = styled.View<BoxProps>`
+export type BoxTouchableProps = BoxProps & TouchableOpacityProps;
+
+export const Box = styled.View<BoxProps>`
   ${boxCompose}
 `;
 
-export default Box;
+export const BoxTouchable = styled.TouchableOpacity<BoxTouchableProps>`
+  ${boxCompose}
+`;

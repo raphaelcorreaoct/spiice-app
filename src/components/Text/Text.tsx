@@ -45,4 +45,8 @@ const Txt = styled.Text<BoxProps>`
   ${boxCompose}
 `;
 
+Txt.defaultProps = {
+  color: 'on-color-background',
+};
+
 export default Txt;

@@ -1,4 +1,11 @@
-import {borderWidths, colors, fontSize, fontWeights, spaces} from './dsTokens';
+import {
+  borderWidths,
+  colors,
+  fontSize,
+  fontWeights,
+  radii,
+  spaces,
+} from './dsTokens';
 
 export const defaultTheme = {
   fontSizes: {
@@ -15,5 +22,8 @@ export const defaultTheme = {
   },
   colors: {
     ...colors,
+  },
+  radii: {
+    ...radii,
   },
 };

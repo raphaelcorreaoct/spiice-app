@@ -41,6 +41,17 @@ export const spaces = {
   lg: 56,
 };
 
+export const radii = {
+  quarck: 4,
+  nano: 8,
+  xxxs: 14,
+  xxs: 24,
+  xs: 32,
+  sm: 40,
+  md: 48,
+  lg: 56,
+};
+
 export const colors = {
   'color-primary': '#5DA664',
   'color-secondary': '#AAD3BB',
@@ -52,4 +63,7 @@ export const colors = {
   'color-warning': '#FFEB3B',
   'color-success': '#4CAF50',
   'on-color-danger': '#fff',
+  'on-color-warning': '#fff',
+  'on-color-success': '#fff',
+  'border-color-primary': '#A8A8A8',
 };
