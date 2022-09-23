@@ -7,6 +7,7 @@ import RegistrationScreen from '../screens/Registration/RegistrationScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useTheme} from 'styled-components';
 import Txt from './../components/Text/Text';
+import Account from './../screens/Account/Account';
 
 export const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -27,6 +28,9 @@ export const AppStack: React.FC = () => {
           }
           if (route.name === 'registration') {
             label = 'Cadastrar';
+          }
+          if (route.name === 'account') {
+            label = 'Minha Conta';
           }
           return (
             <Txt
@@ -49,6 +53,10 @@ export const AppStack: React.FC = () => {
             iconName = focused ? 'add' : 'add-outline';
           }
 
+          if (route.name === 'account') {
+            iconName = focused ? 'person' : 'person-outline';
+          }
+
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: theme.colors['color-primary'],
@@ -57,6 +65,7 @@ export const AppStack: React.FC = () => {
       <Tab.Screen name="home" component={HomeScreen} />
       <Tab.Screen name="report" component={ReportScreen} />
       <Tab.Screen name="registration" component={RegistrationScreen} />
+      <Tab.Screen name="account" component={Account} />
     </Tab.Navigator>
   );
 };

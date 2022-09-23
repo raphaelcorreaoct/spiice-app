@@ -3,10 +3,17 @@ import React, {useState} from 'react';
 import {addTransaction} from '../../services';
 import {Box, Input, PrimaryButton, Txt} from '../../components';
 import {SecondaryButton} from '../../components/Buttons/PrimaryButton';
+import {fontSize, fontWeights} from './../../theme/dsTokens';
+
+const replaceToCurrency = (value: string) => {
+  let val = value.replace(/[a-z A-Z]/g, '');
+
+  return val;
+};
 
 export default function RegistrationScreen() {
   const [values, setValues] = useState({
-    value: 60000,
+    value: '0,00',
     description: '',
     category: '',
     isPositive: true,
@@ -24,7 +31,18 @@ export default function RegistrationScreen() {
       <Box px="xxxs">
         <Box justifyContent="center" alignItems="center" mb="lg">
           <Txt>Valor</Txt>
-          <Input value={values.value} />
+          <Input
+            minWidth={'100%'}
+            value={values.value}
+            fontSize={'xxxl'}
+            fontWeights="bold"
+            borderWidth={0}
+            textAlign="center"
+            color="on-color-background"
+            onChangeText={text => {
+              onValueChange('value', replaceToCurrency(text));
+            }}
+          />
         </Box>
         <Box mb="xxxs">
           <Txt mb="nano">Descrição</Txt>
