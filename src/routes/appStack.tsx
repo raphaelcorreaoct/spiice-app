@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useTheme} from 'styled-components';
 import Txt from './../components/Text/Text';
 import Account from './../screens/Account/Account';
+import {Box} from '../components';
 
 export const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -61,6 +62,9 @@ export const AppStack: React.FC = () => {
         },
         tabBarActiveTintColor: theme.colors['color-primary'],
         tabBarInactiveTintColor: theme.colors['on-color-background'],
+        tabBarStyle: {
+          backgroundColor: theme.colors['color-secondary'],
+        },
       })}>
       <Tab.Screen name="home" component={HomeScreen} />
       <Tab.Screen name="report" component={ReportScreen} />

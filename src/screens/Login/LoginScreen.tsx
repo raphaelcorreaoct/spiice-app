@@ -40,7 +40,12 @@ export default function LoginScreen() {
   };
 
   return (
-    <Box flex={1} justifyContent="center" alignItems="center" px="xxxs">
+    <Box
+      flex={1}
+      justifyContent="center"
+      alignItems="center"
+      px="xxxs"
+      bg="color-background">
       <Txt mb="md" fontSize="display" color="color-primary">
         $
       </Txt>

@@ -27,3 +27,25 @@ export const defaultTheme = {
     ...radii,
   },
 };
+
+export const purpleTheme = {
+  ...defaultTheme,
+  colors: {
+    ...colors,
+    'color-primary': '#695EC2',
+    'color-secondary': '#C95CB5',
+    'color-background': '#484554',
+    'on-color-background': '#ADA9BB',
+  },
+};
+
+export const darkTheme = {
+  ...defaultTheme,
+  colors: {
+    ...colors,
+    'color-primary': '#44464A',
+    'color-secondary': '#70878D',
+    'color-background': '#2A2A2A',
+    'on-color-background': '#C4C4C4',
+  },
+};

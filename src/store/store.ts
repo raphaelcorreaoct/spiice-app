@@ -8,7 +8,7 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   timeout: 0,
-  whitelist: [],
+  whitelist: ['themeReducer'],
   transforms: [],
 };
 

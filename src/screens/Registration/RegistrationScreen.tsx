@@ -67,7 +67,7 @@ export default function RegistrationScreen() {
   };
 
   return (
-    <Box flex={1} bg="background-color" justifyContent="center">
+    <Box flex={1} bg="color-background" justifyContent="center">
       <Box px="xxxs">
         <Box justifyContent="center" alignItems="center" mb="lg">
           <Txt>Valor</Txt>
