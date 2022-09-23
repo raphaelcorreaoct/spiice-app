@@ -11,6 +11,7 @@ export default function LoginScreen() {
   });
 
   const handleLogin = () => {
+    console.log('foi...');
     auth()
       .createUserWithEmailAndPassword(values.email, values.passw)
       .then(() => {

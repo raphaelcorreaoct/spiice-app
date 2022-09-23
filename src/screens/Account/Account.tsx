@@ -37,20 +37,20 @@ export default function Account() {
       <Box mt="xs" width="100%">
         <Txt>Mudar o tema</Txt>
         <OutlineButton
-          title="Purple Theme"
+          title="Nu Bank"
           onPress={() => {
             theme.changeTheme('purple');
           }}
         />
         <OutlineButton
-          title="Light Theme"
+          title="Excel"
           mt="xs"
           onPress={() => {
             theme.changeTheme('light');
           }}
         />
         <OutlineButton
-          title="Dark Theme"
+          title="Drakula"
           mt="xs"
           onPress={() => {
             theme.changeTheme('dark');

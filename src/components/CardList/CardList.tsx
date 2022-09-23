@@ -2,9 +2,9 @@ import React from 'react';
 import {Box} from '../Box/Box';
 import Txt from '../Text/Text';
 export default function CardList({
-  category,
-  description,
-  value,
+  category = 'Mercado',
+  description = 'Feira semanal',
+  value = '199,90',
 }: {
   category: string;
   description: string;
