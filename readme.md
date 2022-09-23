@@ -1,7 +1,5 @@
 # SPIICE APP 
 
-
-# Preview 
 ![Alt Text](./PREVIEW.gif)
 
 ## Desafio 
