@@ -1,9 +1,9 @@
-import {View, Text, Button} from 'react-native';
 import React, {useState} from 'react';
-import {addTransaction} from '../../services';
 import {Box, Input, PrimaryButton, Txt} from '../../components';
-import {SecondaryButton} from '../../components/Buttons/PrimaryButton';
-import {fontSize, fontWeights} from './../../theme/dsTokens';
+import {addTransaction} from '../../services';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../store/rootReducer';
+import Toast from 'react-native-toast-message';
 
 const replaceToCurrency = (value: string) => {
   let val = value.replace(/[a-z A-Z]/g, '');
@@ -12,11 +12,13 @@ const replaceToCurrency = (value: string) => {
 };
 
 export default function RegistrationScreen() {
+  const auth = useSelector((store: RootState) => store.loginReducer);
+
   const [values, setValues] = useState({
     value: '0,00',
     description: '',
     category: '',
-    isPositive: true,
+    data: new Date(),
   });
 
   const onValueChange = (field: string, value: string) => {
@@ -24,6 +26,44 @@ export default function RegistrationScreen() {
       ...prev,
       [field]: value,
     }));
+  };
+
+  const onSubmit = () => {
+    try {
+      if (!auth.user.uid) {
+        throw 'Você não está logado!';
+      }
+
+      if (values.value.length === 0 || values.value === '') {
+        throw 'O valor digitado está inválido!';
+      }
+
+      addTransaction({
+        userId: auth.user.uid,
+        category: values.category,
+        date: values.data,
+        description: values.description,
+        value: values.value,
+      });
+
+      setValues({
+        value: '0,00',
+        description: '',
+        category: '',
+        data: new Date(),
+      });
+
+      Toast.show({
+        type: 'success',
+        text1: 'Valor cadastrado com sucesso!',
+      });
+    } catch (error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Ocorreu um erro!',
+        text2: error.message,
+      });
+    }
   };
 
   return (
@@ -47,7 +87,6 @@ export default function RegistrationScreen() {
         <Box mb="xxxs">
           <Txt mb="nano">Descrição</Txt>
           <Input
-            placeholder="Lanche na sexta"
             value={values.description}
             onChangeText={text => {
               onValueChange('description', text);
@@ -57,7 +96,6 @@ export default function RegistrationScreen() {
         <Box mb="xxxs">
           <Txt mb="nano">Categoria</Txt>
           <Input
-            placeholder="Lanche na sexta"
             value={values.category}
             onChangeText={text => {
               onValueChange('category', text);
@@ -66,8 +104,12 @@ export default function RegistrationScreen() {
         </Box>
 
         <Box flexDirection="row" mt="xxs">
-          <PrimaryButton title="Positivo" flex={1} mr="nano" />
-          <SecondaryButton title="Negativo" flex={1} />
+          <PrimaryButton
+            title="Cadastrar"
+            flex={1}
+            mr="nano"
+            onPress={onSubmit}
+          />
         </Box>
       </Box>
     </Box>
